@@ -1,46 +1,55 @@
 //---------------------------------------------------------
-// Demo           : course_en_taxi
-// Fichier        : course_en_taxi.cpp
-// Auteur(s)      : Hasan Ilingi & Alex Franchi
-// Date           : 03.10.2022
+// Demo           : labo_03_xxx
+// Fichier        : labo_03_taxi_update.cpp
+// Auteur(s)      : (Hasan Ilingi & Alex Franchi) Pollien Lionel, Villegas Castrillon Adrian
+// Date           : 11.10.2022
 // But            : Un programme qui calcule le prix d’une course de taxi en €
 // Modifications  :
-// Remarque(s)    :
+// Remarque(s)    : Modifications des constantes pour les tarifs ... TODO
 //---------------------------------------------------------
 
-#include <cstdlib>
-#include <iostream>
-#include <iomanip>
-#include <limits>
+#include <cstdlib>   // -
+#include <iostream>  // -
+#include <iomanip>   // -
+#include <limits>    // -
 
 using namespace std;
 
-//Hello
 int main() {
-   const int      HEURE_EN_MINUTES     = 60,
-      LARGEUR_LIGNE        = 25;
+   const int    LARGEUR_LIGNE           =   25,
+                PRECISION_AFFICHAGE     =    2; // new
 
-   const double   TAXE_DE_BASE         = 5.00,
-      SURTAXE_PAR_BAGAGE   = 2.50,
-      TARIF_PAR_MINUTE     = 1.20;
+   const double TAXE_DE_BASE            = 5.00,
+                SURTAXE_PAR_BAGAGE      = 2.50,
+                TARIF_PAR_MINUTE_JOUR   = 1.20, // modif
+                TARIF_PAR_MINUTE_NUIT   = 1.60;
 
-   int            nombreDeBagage       = 0,
-      distanceParcourue    = 0,
-      vitesseMoyanne       = 0;
+   const int    DEBUT_TARIF_JOUR        =    8, // new
+                FIN_TARIF_JOUR          =   20,
+                LIMITE_INF_BAGAGES      =    0,
+                LIMITE_SUP_BAGAGES      =    4,
+                LIMITE_INF_DISTANCE     =    0,
+                LIMITE_SUP_DISTANCE     =  500,
+                LIMITE_INF_VITESSE      =   30,
+                LIMITE_SUP_VITESSE      =  120;
 
+   int          nombreBagage; // delete start to 0
+   double       distanceParcourue,
+                vitesseMoyanne;
 
-   double         dureeDeCourse,
-      prixDeBagage,
-      prixDeLaCourse,
-      prixTotal;
+   double       prixBagage,
+                dureeCourse,
+                prixCourseJour,
+                prixCourseNuit,
+                prixTotal;
 
-   cout           << "Bonjour, ce programe calcule le prix d’une course en € en taxi." << endl
-                  << endl
-                  << "Voici les conditions" << endl
-                  << "====================" << endl
-                  << left << setw(LARGEUR_LIGNE) << " - prise en charge"      << " : " << TAXE_DE_BASE         << endl
-                  << left << setw(LARGEUR_LIGNE) << " - supp par bagag"       << " : " << SURTAXE_PAR_BAGAGE   << endl
-                  << left << setw(LARGEUR_LIGNE) << " - tarif/Minute"         << " : " << TARIF_PAR_MINUTE     << endl;
+   // Start program ....TODO
+   cout << "Bonjour, ce programe calcule le prix d’une course en € en taxi." << endl
+        << "Voici les conditions" << endl
+        << "====================" << endl
+        << left << setw(LARGEUR_LIGNE) << " - prise en charge" << " : " << TAXE_DE_BASE         << endl
+        << left << setw(LARGEUR_LIGNE) << " - supp par bagage" << " : " << SURTAXE_PAR_BAGAGE   << endl
+        << left << setw(LARGEUR_LIGNE) << " - tarif/min (jour)" << " : " << TARIF_PAR_MINUTE_JOUR     << endl;
 
    cout           << "Saisir le nombre de bagage(s):";
    cin            >> nombreDeBagage;
