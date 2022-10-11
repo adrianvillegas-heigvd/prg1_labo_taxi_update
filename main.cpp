@@ -15,6 +15,7 @@
 
 using namespace std;
 
+//Hello
 int main() {
    const int      HEURE_EN_MINUTES     = 60,
       LARGEUR_LIGNE        = 25;
